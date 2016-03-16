@@ -29,7 +29,7 @@ class ScrobbleDaemon:
 		if np is None or np == self.last_name: return
 		(artist, track) = split_artist_track(np)
 		lastfm_network.scrobble(artist=artist, title=track, timestamp=timestamp)
-		print(time.strftime("%H:%M"),"\t",np)
+		print(time.strftime("%H:%M"),"\t",np.encode("utf-8"))
 		self.last_name = np
 
 	def run(self):
