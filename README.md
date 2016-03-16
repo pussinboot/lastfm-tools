@@ -9,6 +9,10 @@ Uses [pylast](https://github.com/pylast/pylast):
 pip install pylast
 ```
 
+puss's script - scrobble_fix.py
+-------------------------------
+run with pythonw in order to scrobble whatever is playing in winamp : )
+
 np.py
 -----
 Show my now playing song, or that of a given username.
