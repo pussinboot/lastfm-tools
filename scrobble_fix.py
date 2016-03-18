@@ -27,9 +27,15 @@ class ScrobbleDaemon:
 			timestamp = int(time.mktime(datetime.datetime.now().timetuple()))
 		np = self.get_np()
 		if np is None or np == self.last_name: return
-		(artist, track) = split_artist_track(np)
-		lastfm_network.scrobble(artist=artist, title=track, timestamp=timestamp)
-		print(time.strftime("%H:%M"),"\t",np.encode("utf-8"))
+		try:
+			(artist, track) = split_artist_track(np)
+			lastfm_network.scrobble(artist=artist, title=track, timestamp=timestamp)
+		except:
+			return
+		try:
+			print(time.strftime("%H:%M"),"\t",np)
+		except:
+			print(time.strftime("%H:%M"),"\t",'text incompatible with terminal')
 		self.last_name = np
 
 	def run(self):
